@@ -31,39 +31,64 @@ class _MenuPageState extends State<MenuPage> {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: primaryColor,
-                borderRadius: BorderRadius.circular(20),
+              color: primaryColor,
+              borderRadius: BorderRadius.circular(20),
             ),
             margin: const EdgeInsets.symmetric(horizontal: 25),
-            padding: const EdgeInsets.all(25),
+            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // promo message
                     Text(
-                        'Get 32% promo',
-                        style: GoogleFonts.dmSerifDisplay(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
+                      'Get 32% promo',
+                      style: GoogleFonts.dmSerifDisplay(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
                     ),
 
                     const SizedBox(height: 20),
 
                     //   redeem button
-                    MyButton(text: "Redeem",
-                        onTap: () {
-
-                        }
-                        ),
+                    MyButton(text: "Redeem", onTap: () {}),
                   ],
-                )
+                ),
 
-            //   image
-            ],
+                //   image
+                Image.asset(
+                    'lib/images/many_sushi.png',
+                    height: 100,
+                ),
+              ],
             ),
-          )
+          ),
+
+          const SizedBox(height: 25),
+
+        //   search bar
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: TextField(
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+          ),
+
+        //   menu list
+
+        //   popular food
         ],
       ),
     );

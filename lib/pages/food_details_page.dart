@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:restaurant_app/components/button.dart';
+import 'package:restaurant_app/theme/colors.dart';
 import '../models/food.dart';
 
 class FoodDetailsPage extends StatefulWidget {
@@ -12,6 +14,26 @@ class FoodDetailsPage extends StatefulWidget {
 }
 
 class _FoodDetailsPageState extends State<FoodDetailsPage> {
+  // quantity
+  int quantityCount = 0;
+
+  // decrement quantity
+  void decrementQuantity() {
+    setState(() {
+      quantityCount--;
+    });
+  }
+
+  // increment quantity
+  void incrementQuantity() {
+    setState(() {
+      quantityCount++;
+    });
+  }
+
+  // add to cart
+  void addToCart() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,78 +44,156 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
       ),
       body: Column(
         children: [
-        //   List View Of Food Details
+          //   List View Of Food Details
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: ListView(
-              children: [
-              //   image
-                Image.asset(
-                  widget.food.imagePath,
-                  height: 200,
-                ),
+                children: [
+                  //   image
+                  Image.asset(
+                    widget.food.imagePath,
+                    height: 200,
+                  ),
 
-              const SizedBox(height: 25),
+                  const SizedBox(height: 25),
 
-              //   rating
-                Row(
-                  children: [
-                  //   star icon
-                    Icon(
-                      Icons.star,
-                      color: Colors.yellow[800],
-                    ),
+                  //   rating
+                  Row(
+                    children: [
+                      //   star icon
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow[800],
+                      ),
 
-                    const SizedBox(width: 5),
+                      const SizedBox(width: 5),
 
-                  //   rating number
-                    Text(
+                      //   rating number
+                      Text(
                         widget.food.rating,
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontWeight: FontWeight.bold,
                         ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 25),
+
+                  //   food name
+                  Text(
+                    widget.food.name,
+                    style: GoogleFonts.dmSerifDisplay(fontSize: 28),
+                  ),
+
+                  const SizedBox(height: 25),
+
+                  //   description
+                  Text(
+                    "Description",
+                    style: TextStyle(
+                      color: Colors.grey[900],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  Text(
+                    "Savor our melt-in-your-mouth salmon sushi, featuring premium Atlantic salmon delicately draped over perfectly seasoned rice, offering a luxurious blend of buttery fish and subtle umami notes in every bite.",
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 14,
+                      height: 2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          //   price + quantity + add to cart button
+          Container(
+            color: primaryColor,
+            padding: const EdgeInsets.all(25),
+            child: Column(
+              children: [
+                //   price + quantity
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    //   price
+                    Text(
+                      "\$" + widget.food.price,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+
+                    //   quantity
+                    Row(
+                      children: [
+                      //   minus button
+                        Container(
+                          decoration: BoxDecoration(
+                            color: secondaryColor,
+                            shape: BoxShape.circle,
+                          ),
+                          child: IconButton(
+                            icon: const Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                            ),
+                            onPressed: decrementQuantity,
+                          ),
+                        ),
+
+                      //   quantity count
+                        SizedBox(
+                          width: 40,
+                          child: Center(
+                            child: Text(
+                                quantityCount.toString(),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                            ),
+                          ),
+                        ),
+
+                      //   plus button
+                        Container(
+                          decoration: BoxDecoration(
+                            color: secondaryColor,
+                            shape: BoxShape.circle,
+                          ),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                            onPressed: incrementQuantity,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
 
                 const SizedBox(height: 25),
 
-              //   food name
-                Text(
-                  widget.food.name,
-                  style: GoogleFonts.dmSerifDisplay(fontSize: 28),
-                ),
-
-                const SizedBox(height: 25),
-
-              //   description
-                Text(
-                  "Description",
-                  style: TextStyle(
-                    color: Colors.grey[900],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-
-                const SizedBox(height: 10),
-                
-                Text(
-                  "Savor our melt-in-your-mouth salmon sushi, featuring premium Atlantic salmon delicately draped over perfectly seasoned rice, offering a luxurious blend of buttery fish and subtle umami notes in every bite.",
-                  style: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 14,
-                    height: 2,
-                  ),
-                ),
+                //   add to cart button
+                MyButton(text: "Add To Cart", onTap: addToCart),
               ],
-                        ),
             ),
           ),
-
-        //   price + quantity + add to cart button
         ],
       ),
     );

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_app/components/button.dart';
+import 'package:restaurant_app/main.dart';
+import 'package:restaurant_app/models/shop.dart';
 import 'package:restaurant_app/theme/colors.dart';
 import '../models/food.dart';
 
@@ -34,7 +37,24 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
   }
 
   // add to cart
-  void addToCart() {}
+  void addToCart() {
+  //   only add to cart if there is something in the cart.
+    if(quantityCount > 0) {
+      //   get access to shop.
+      final shop = context.read<Shop>();
+
+      //   add to cart.
+      shop.addToCart(widget.food, quantityCount);
+
+      //   let the user know item added successfully.
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Text("Successfully added to cart."),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

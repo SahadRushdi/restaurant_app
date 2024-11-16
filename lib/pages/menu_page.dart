@@ -72,6 +72,15 @@ class _MenuPageState extends State<MenuPage> {
           'Tokyo',
           style: TextStyle(color: Colors.grey[900]),
         ),
+        actions: [
+        //   cart button
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/cartpage');
+              },
+              icon: const Icon(Icons.shopping_cart),
+          )
+        ],
       ),
       body: Column(
         children: [

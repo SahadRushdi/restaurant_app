@@ -6,6 +6,16 @@
 
 ![image](https://github.com/user-attachments/assets/498a5063-617f-4c04-b23e-7b7440a75a79)
 
+## Implemented Feautures 
+
+This application uses State Management Approach.
+
+A User can View Foods, if he likes the food he also can add it to cart and purchase the food.
+
+Added Add to Cart Feature and Delete from Cart Feature.
+
+Images with name price and rating for each food is been shown in an attractive way to the user.
+
 A new Flutter project.
 
 ## Getting Started

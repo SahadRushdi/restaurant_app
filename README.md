@@ -1,5 +1,4 @@
 # restaurant_app in flutter with dart
-![image](https://github.com/user-attachments/assets/73150449-dc41-45c4-b627-e83a5696e807)
 
 ![image](https://github.com/user-attachments/assets/be217876-cd8e-4497-8da0-ae942bb0d1b6)
 

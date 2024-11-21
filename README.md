@@ -1,11 +1,5 @@
 # restaurant_app in flutter with dart
 
-![image](https://github.com/user-attachments/assets/be217876-cd8e-4497-8da0-ae942bb0d1b6)
-
-![image](https://github.com/user-attachments/assets/98b9bdfa-0f0f-43de-a99c-730b75ba40e4)
-
-![image](https://github.com/user-attachments/assets/498a5063-617f-4c04-b23e-7b7440a75a79)
-
 ## Implemented Feautures 
 
 This application uses State Management Approach.
@@ -15,6 +9,12 @@ A User can View Foods, if he likes the food he also can add it to cart and purch
 Added Add to Cart Feature and Delete from Cart Feature.
 
 Images with name price and rating for each food is been shown in an attractive way to the user.
+
+![image](https://github.com/user-attachments/assets/be217876-cd8e-4497-8da0-ae942bb0d1b6)
+
+![image](https://github.com/user-attachments/assets/98b9bdfa-0f0f-43de-a99c-730b75ba40e4)
+
+![image](https://github.com/user-attachments/assets/498a5063-617f-4c04-b23e-7b7440a75a79)
 
 A new Flutter project.
 

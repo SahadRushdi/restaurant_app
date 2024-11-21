@@ -35,6 +35,22 @@ class _MenuPageState extends State<MenuPage> {
       imagePath: "lib/images/tuna.png",
       rating: "4.3",
     ),
+
+    // Ramen
+    Food(
+      name: "Ramen",
+      price: "22.00",
+      imagePath: "lib/images/noodles.png",
+      rating: "4.1"
+    ),
+
+    // Okonomiyaki
+    Food(
+        name: "Okonomiyaki",
+        price: "19.00",
+        imagePath: "lib/images/okonomiyaki.png",
+        rating: "3.8"
+    ),
   ];
 
   // Navigate to food item Details Page

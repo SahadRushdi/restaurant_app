@@ -21,7 +21,7 @@ class IntroPage extends StatelessWidget {
               Text(
                 "Sushi Man",
                 style: GoogleFonts.dmSerifDisplay(
-                  fontSize: 28,
+                  fontSize: 30,
                   color: Colors.white,
                 ),
               ),

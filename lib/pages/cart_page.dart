@@ -11,10 +11,10 @@ class CartPage extends StatelessWidget {
 
   // remove from cart
   void removeFromCart(Food food, BuildContext context) {
-  //   get access to the shop
+    //   get access to the shop
     final shop = context.read<Shop>();
 
-  //   remove form cart
+    //   remove form cart
     shop.removeFromCart(food);
   }
 
@@ -26,6 +26,11 @@ class CartPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("My Cart"),
           elevation: 0,
+          titleTextStyle: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 33.0,
+          ),
           backgroundColor: primaryColor,
         ),
         body: Column(
